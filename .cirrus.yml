@@ -1,0 +1,21 @@
+env:
+    CIRRUS_CLONE_DEPTH: 1
+    BUILD_HOSTNAME: "cirrus-ci.org"
+
+task:
+    name: Recovery Builder
+    timeout_in: 90m
+    container:
+        image: ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04
+        cpu: 8
+        memory: 16G
+
+    Build_Env_setup:
+        - apt update
+        - apt install sudo git aria2 -y
+        - git config --global user.name "RahulPalXDA"
+        - git config --global user.email "RahulPal.XDA@gmail.com"
+        - git clone https://gitlab.com/OrangeFox/misc/scripts
+        - cd scripts
+        - sudo bash setup/android_build_env.sh
+        - sudo bash setup/install_android_sdk.sh
