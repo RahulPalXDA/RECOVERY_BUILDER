@@ -7,8 +7,8 @@ task:
     timeout_in: 90m
     container:
         image: ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04
-        cpu: 8
-        memory: 16G
+        cpu: 4
+        memory: 8G
 
     Build_Env_setup:
         - apt update
